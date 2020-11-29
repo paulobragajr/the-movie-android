@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">The Movie Android</string>
+
+
+    <!--Url String Service-->
+    <string name="apiKey">b425891fefac82f79ed3543140a977ca</string>
+    <string name="base_url_img_movie">http://image.tmdb.org/t/p</string>
+    <string name="size_imagem_185">/w185/</string>
+    <string name="size_imagem_780">/w780/</string>
+    <string name="size_imagem_origianl">/original/</string>
+
+</resources>

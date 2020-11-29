@@ -1,0 +1,96 @@
+plugins {
+    id 'com.android.application'
+    id "org.sonarqube" version "2.6"
+    id 'kotlin-android'
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'org.sonarqube'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        applicationId "br.com.juniorbraga.themovieandroid"
+        minSdkVersion 16
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+
+    kapt {
+        generateStubs = true
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    def dependencies = rootProject.ext.dependencies
+    def testDependencies = rootProject.ext.testDependencies
+
+    // Kotlin
+    implementation dependencies.kotlin
+    implementation dependencies.supportAppCompat
+    implementation dependencies.supportCore
+    implementation dependencies.supportDesign
+    implementation dependencies.constraintLayout
+
+
+    implementation dependencies.supportRecyclerView
+    implementation dependencies.constraintLayout
+
+    // Glide
+    implementation dependencies.glide
+    kapt dependencies.glideCompiler
+
+    // Dagger2
+    implementation dependencies.javaxAnnotation
+    implementation dependencies.dagger
+    kapt dependencies.daggerCompiler
+    kapt dependencies.daggerProcessor
+    implementation dependencies.daggerSupport
+    implementation dependencies.daggerAndroid
+
+    // RxJava
+    implementation dependencies.rxJava
+
+    //Retrofit
+    implementation dependencies.retrofit
+    implementation dependencies.retrofitMoshiConverter
+    implementation dependencies.retrofitRxJavaAdapter
+    implementation dependencies.loggingInterceptor
+
+    testImplementation testDependencies.jUnit
+    androidTestImplementation testDependencies.androidJunit
+    androidTestImplementation testDependencies.espresso
+}
