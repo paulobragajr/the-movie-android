@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import br.com.juniorbraga.themovieandroid.R
+import br.com.juniorbraga.themovieandroid.component.FadeInLinearLayoutManager
 import br.com.juniorbraga.themovieandroid.model.MovieSeries
 import br.com.juniorbraga.themovieandroid.ui.main.MainContract
 import com.bumptech.glide.Glide
@@ -50,5 +51,7 @@ class MovieAdapter(private val movieSeries: List<MovieSeries>,
         holder.titleMovie.text= movie.title
         holder.rtbRanking.rating = (movieRanking / 2).toFloat()
         holder.txtRaking.text = movieRanking.toString()
+
+        FadeInLinearLayoutManager.animateItemView(holder.itemView)
     }
 }

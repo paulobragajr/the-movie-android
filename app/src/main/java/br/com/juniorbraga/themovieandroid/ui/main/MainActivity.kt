@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() , MainContract.View {
     override fun updateMovies(moviesList: ResponseMovieSeries) {
         var INITIAL_PAGE = 1
         this.responseMovieSeries =  moviesList
-        val layoutManager = FadeInLinearLayoutManager(this, LinearLayoutManager.VERTICAL ,false)
+        val layoutManager = LinearLayoutManager(this)
 
         if (this.currentPage > INITIAL_PAGE){
             this.results = merge(this.results,this.responseMovieSeries.results)

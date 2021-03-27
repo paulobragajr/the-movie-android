@@ -1,27 +1,43 @@
 package br.com.juniorbraga.themovieandroid.component
 
-import android.content.Context
-import android.util.AttributeSet
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
+import android.animation.ValueAnimator
 import android.view.View
 import android.view.animation.AnticipateOvershootInterpolator
-import androidx.recyclerview.widget.LinearLayoutManager
 
-open class FadeInLinearLayoutManager : LinearLayoutManager {
-    constructor(context: Context?) : super(context)
-    constructor(context: Context?, orientation: Int, reverseLayout: Boolean) : super(context, orientation, reverseLayout)
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes)
+open class FadeInLinearLayoutManager  {
 
-    private val enterInterpolator = AnticipateOvershootInterpolator(2f)
+    companion object {
+        fun animateItemView(itemView: View) {
+            //hide the itemView
+            itemView.alpha = 0f
 
-    override fun addView(child: View, index: Int) {
-        super.addView(child, index)
-        val h = 400f
-        // if index == 0 item is added on top if -1 it's on the bottom
-        child.translationY = if(index == 0) -h else h
-        // begin animation when view is laid out
-        child.alpha = 0.3f
-        child.animate().translationY(0f).alpha(1f)
-            .setInterpolator(enterInterpolator)
-            .setDuration(1000L)
+            //moving the itemView down 400f
+            ObjectAnimator.ofFloat(itemView, "translationY", 0f, 400f)
+                .apply { duration = 1L }.start()
+
+            //show
+            //itemView.alpha = 1f
+
+            //moving the itemView up 400f
+            val translateUp = ObjectAnimator.ofFloat(itemView, "translationY", 400f, 0f)
+                .apply {
+                    duration = 1000L
+                    interpolator = AnticipateOvershootInterpolator(2f)
+                }
+
+            //animating alpha
+            val fade = ValueAnimator.ofFloat(0f, 1f)
+                .apply {
+                    addUpdateListener {
+                        itemView.alpha = this.animatedValue as Float
+                    }
+                    duration = 400L
+                }
+
+            //applying
+            AnimatorSet().apply { playTogether(translateUp, fade) }.start()
+        }
     }
 }

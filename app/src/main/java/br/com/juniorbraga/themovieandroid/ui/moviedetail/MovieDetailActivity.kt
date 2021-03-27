@@ -52,7 +52,7 @@ class MovieDetailActivity : AppCompatActivity(), MovieDetailContract.View {
         txt_tagline.text = this.movieSeries.tagline
         rtb_ranking.rating = (this.movieSeries.vote_average / 2).toFloat()
 
-        val layoutManager = FadeInLinearLayoutManager(this, LinearLayoutManager.HORIZONTAL ,false)
+        val layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         rv_genere.layoutManager = layoutManager
         rv_genere.adapter = GenereAdapter(this.movieSeries.genres, this)
 
