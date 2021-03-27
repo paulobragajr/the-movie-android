@@ -9,7 +9,6 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.juniorbraga.themovieandroid.R
 import br.com.juniorbraga.themovieandroid.aplication.App
-import br.com.juniorbraga.themovieandroid.component.FadeInLinearLayoutManager
 import br.com.juniorbraga.themovieandroid.component.percentView
 import br.com.juniorbraga.themovieandroid.model.MovieSeriesDetail
 import br.com.juniorbraga.themovieandroid.service.ID_MOVIE
