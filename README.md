@@ -12,10 +12,7 @@
 
 
 
-
-## Run tests
-
 ```sh
-yarn run test
+
 ```
 
