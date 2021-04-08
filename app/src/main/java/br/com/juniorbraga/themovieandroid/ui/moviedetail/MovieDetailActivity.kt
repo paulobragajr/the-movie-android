@@ -49,7 +49,7 @@ class MovieDetailActivity : AppCompatActivity(), MovieDetailContract.View {
         txt_title_movie.text = this.movieSeries.title
         txt_overview.text = this.movieSeries.overview
         txt_tagline.text = this.movieSeries.tagline
-        rtb_ranking.rating = (this.movieSeries.vote_average / 2).toFloat()
+        rating.setRating(this.movieSeries.vote_average)
 
         val layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         rv_genere.layoutManager = layoutManager

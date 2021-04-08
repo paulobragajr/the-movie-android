@@ -20,8 +20,7 @@ class MovieAdapter(private val movieSeries: List<MovieSeries>,
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val titleMovie = itemView.txt_title_movie
         val ivMovie = itemView.iv_movie
-        val rtbRanking = itemView.rtb_ranking
-        val txtRaking = itemView.txt_raking
+        val itemRating = itemView.item_rating
         val constItem = itemView.const_item
     }
 
@@ -36,7 +35,6 @@ class MovieAdapter(private val movieSeries: List<MovieSeries>,
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val movie = movieSeries[position]
-        val movieRanking = movie.vote_average
 
         val urlMovie: String = this.context.getString(R.string.base_url_img_movie) +
                 this.context.getString(R.string.size_imagem_185) +
@@ -46,11 +44,9 @@ class MovieAdapter(private val movieSeries: List<MovieSeries>,
             .load(urlMovie)
             .into(holder.ivMovie)
 
-
         holder.constItem.setOnClickListener { view.selectedMovie(movie) }
         holder.titleMovie.text= movie.title
-        holder.rtbRanking.rating = (movieRanking / 2).toFloat()
-        holder.txtRaking.text = movieRanking.toString()
+        holder.itemRating.setRating(movie.vote_average)
 
         FadeInLinearLayoutManager.animateItemView(holder.itemView)
     }

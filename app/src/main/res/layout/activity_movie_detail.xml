@@ -43,20 +43,10 @@
                     android:textColor="@color/white"
                     android:textSize="35dp" />
 
-                <RatingBar
-                    android:id="@+id/rtb_ranking"
-                    style="?android:attr/ratingBarStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
-                    android:maxHeight="18dp"
-                    android:minHeight="18dp"
-                    android:numStars="5"
-                    android:progressBackgroundTint="@color/white"
-                    android:progressTint="#FFC107"
-                    android:rating="2.5"
-                    android:secondaryProgressTint="#FFEB3B"
-                    android:stepSize="0.1" />
+               <br.com.juniorbraga.themovieandroid.component.TheMovieRating
+                   android:id="@+id/rating"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_genere"

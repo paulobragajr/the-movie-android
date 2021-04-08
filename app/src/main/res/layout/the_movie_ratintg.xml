@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_ranking"
+    android:layout_width="match_parent"
+    android:layout_height="22sp"
+    android:orientation="horizontal">
+    <RatingBar
+        android:id="@+id/rtb_ranking"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:maxHeight="18dp"
+        android:minHeight="18dp"
+        android:numStars="5"
+        android:progressBackgroundTint="@color/white"
+        android:progressTint="#FFC107"
+        android:rating="2.5"
+        android:secondaryProgressTint="#FFEB3B"
+        android:stepSize="0.1" />
+
+    <TextView
+        android:id="@+id/txt_raking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="2.5"
+        android:textColor="#FFC107" />
+
+</LinearLayout>

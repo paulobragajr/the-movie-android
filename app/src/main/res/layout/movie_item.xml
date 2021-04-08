@@ -47,38 +47,12 @@
                     android:textSize="18dp"
                     android:textColor="@color/white" />
 
-                <LinearLayout
-                    android:id="@+id/ll_ranking"
+                <br.com.juniorbraga.themovieandroid.component.TheMovieRating
+                    android:id="@+id/item_rating"
                     android:layout_width="match_parent"
-                    android:layout_height="22sp"
-                    android:orientation="horizontal">
+                    android:layout_height="wrap_content"/>
 
-                    <RatingBar
-                        android:id="@+id/rtb_ranking"
-                        style="?android:attr/ratingBarStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/white"
-                        android:maxHeight="18dp"
-                        android:minHeight="18dp"
-                        android:numStars="5"
-                        android:progressBackgroundTint="@color/white"
-                        android:progressTint="#FFC107"
-                        android:rating="2.5"
-                        android:secondaryProgressTint="#FFEB3B"
-                        android:stepSize="0.1" />
-
-                    <TextView
-                        android:id="@+id/txt_raking"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:text="2.5"
-                        android:textColor="#FFC107" />
-                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-
     </androidx.cardview.widget.CardView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
