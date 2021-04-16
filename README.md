@@ -5,12 +5,13 @@
 
 
 ## Sobre 
- Esta aplicação é uma aplicação que exibe filmes e suas avaliações , com listagem e detalhamento dos filmes.
+ Esta aplicação é uma aplicação que exibe filmes e suas avaliações .
+O Aplicativo tem como interesse o estudo de funcionalidades e aqrquitetura para viabilizar a utilização de tal para projetos futuros.
 
 
-<img src="https://github.com/juninhork/the-movie-android/blob/main/assets/the_movie.gif" width="300" height="600" />
-
-<img src="https://github.com/juninhork/the-movie-android/blob/main/assets/Screenshot_1617855166.png" width="300" height="600"> <img src="https://github.com/juninhork/the-movie-android/blob/main/assets/Screenshot_1617855159.png" width="300" height="600">
+<div style="align-items: center;justify-content: center;width:100%">
+  <img src="https://github.com/juninhork/the-movie-android/blob/main/assets/the_movie.gif" width="300" height="600" /> 
+</div>
 
 
 
