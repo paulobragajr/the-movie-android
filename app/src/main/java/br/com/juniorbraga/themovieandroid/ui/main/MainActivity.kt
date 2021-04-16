@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.juniorbraga.themovieandroid.R
 import br.com.juniorbraga.themovieandroid.aplication.App
-import br.com.juniorbraga.themovieandroid.component.FadeInLinearLayoutManager
 import br.com.juniorbraga.themovieandroid.model.MovieSeries
 import br.com.juniorbraga.themovieandroid.model.ResponseMovieSeries
 import br.com.juniorbraga.themovieandroid.service.ID_MOVIE
@@ -16,7 +15,6 @@ import br.com.juniorbraga.themovieandroid.ui.main.adapter.MovieAdapter
 import br.com.juniorbraga.themovieandroid.ui.moviedetail.MovieDetailActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
-
 
 class MainActivity : AppCompatActivity() , MainContract.View {
 
@@ -30,7 +28,6 @@ class MainActivity : AppCompatActivity() , MainContract.View {
     var visibleItemCount: Int = 0
     var totalItemCount: Int = 0
     var currentPage: Int = 1
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,11 +56,9 @@ class MainActivity : AppCompatActivity() , MainContract.View {
             this.results = moviesList.results
         }
 
-
         this.currentPage = currentPage + INITIAL_PAGE
         rv_movie.adapter = MovieAdapter(results, this,this)
         rv_movie.layoutManager = layoutManager
-
 
         rv_movie.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {

@@ -14,19 +14,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TheMovieAndroid"
         android:usesCleartextTraffic="true">
-        <activity
-            android:name=".ui.moviedetail.MovieDetailActivity"
-            android:theme="@style/NoActionBar"/>
-        <activity
-            android:name=".ui.main.MainActivity"
-            android:theme="@style/NoActionBar"
-            android:label="Movie">
+        <activity android:name=".ui.splash.SplashActivity"
+            android:label="Movie"
+            android:theme="@style/NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.moviedetail.MovieDetailActivity"
+            android:theme="@style/NoActionBar" />
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:label="Movie"
+            android:theme="@style/NoActionBar"/>
     </application>
 
 </manifest>

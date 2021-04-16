@@ -18,6 +18,7 @@ import com.bumptech.glide.request.target.SimpleTarget
 import kotlinx.android.synthetic.main.activity_movie_detail.*
 import javax.inject.Inject
 
+
 class MovieDetailActivity : AppCompatActivity(), MovieDetailContract.View {
 
     @Inject
@@ -38,6 +39,7 @@ class MovieDetailActivity : AppCompatActivity(), MovieDetailContract.View {
 
         this.presenter.setView(this)
         this.presenter.getMovie(movieId)
+
     }
 
     override fun updateMovies(movie: MovieSeriesDetail) {

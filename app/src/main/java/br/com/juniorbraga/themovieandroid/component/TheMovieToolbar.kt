@@ -1,9 +1,10 @@
 package br.com.juniorbraga.themovieandroid.component
 
+import android.app.Activity
 import android.content.Context
+import android.content.ContextWrapper
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import br.com.juniorbraga.themovieandroid.R
 import kotlinx.android.synthetic.main.movie_toolbar.view.*
@@ -14,9 +15,17 @@ constructor(private val ctx: Context, private val attributeSet: AttributeSet? = 
 
     init {
         LayoutInflater.from(context).inflate(R.layout.movie_toolbar, this, true)
-
         btn_back.setOnClickListener {
-            Toast.makeText(context,"teste aquiii",Toast.LENGTH_LONG).show()
+            getActivity(context)?.finish()
         }
+    }
+
+    /**
+     * Get activity instance from desired context.
+     */
+    fun getActivity(context: Context?): Activity? {
+        if (context == null) return null
+        if (context is Activity) return context
+        return if (context is ContextWrapper) getActivity(context.baseContext) else null
     }
 }
