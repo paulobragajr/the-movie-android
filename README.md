@@ -13,7 +13,9 @@ O Aplicativo tem como interesse o estudo de funcionalidades e aqrquitetura para 
   <img src="https://github.com/juninhork/the-movie-android/blob/main/assets/the_movie.gif" width="300" height="600" /> 
 </div>
 
-
+<p align="center">
+  <img src="https://github.com/juninhork/the-movie-android/blob/main/assets/the_movie.gif" width="300" height="600" /> 
+</p>
 
 ```sh
 
