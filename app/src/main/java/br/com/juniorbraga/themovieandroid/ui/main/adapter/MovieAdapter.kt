@@ -12,7 +12,7 @@ import br.com.juniorbraga.themovieandroid.ui.main.MainContract
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.movie_item.view.*
 
-class MovieAdapter(private val movieSeries: List<MovieSeries>,
+class MovieAdapter(private var movieSeries: List<MovieSeries>,
                    private val context: Context,
                    private val view : MainContract.View
 ) : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
@@ -49,5 +49,10 @@ class MovieAdapter(private val movieSeries: List<MovieSeries>,
         holder.itemRating.setRating(movie.vote_average)
 
         FadeInLinearLayoutManager.animateItemView(holder.itemView)
+    }
+
+    fun updateList(results: List<MovieSeries>) {
+        this.movieSeries = results
+        notifyDataSetChanged()
     }
 }

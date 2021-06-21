@@ -20,7 +20,8 @@ interface EndPoint {
     @GET("movie/{idMovie}")
      fun detailMovie(
         @Path("idMovie") idMovie: Int,
-        @Query("api_key") apiKey: String
+        @Query("api_key") apiKey: String,
+    @Query("append_to_response") append_response: String
     ): Observable<MovieSeriesDetail>
 //
 //    @GET("tv/{idSerie}")

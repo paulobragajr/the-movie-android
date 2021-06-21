@@ -13,6 +13,7 @@ interface MainContract  {
     interface View {
         fun selectedMovie(movie:MovieSeries)
         fun updateMovies(moviesList: ResponseMovieSeries)
+        fun initialMovie(moviesList: ResponseMovieSeries)
         fun showError(error: String)
     }
 

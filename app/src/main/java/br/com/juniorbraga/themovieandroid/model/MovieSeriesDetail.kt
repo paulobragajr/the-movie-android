@@ -28,6 +28,7 @@ class MovieSeriesDetail {
     var production_countries: List<ProductionCountriesBean>? = null
     var spoken_languages: List<SpokenLanguagesBean>? = null
 
+    var imagens: ImagensBean? = null
 
     // Series
     var created_by: List<CreatedByBean>? = null
@@ -154,5 +155,23 @@ class MovieSeriesDetail {
         var overview: String? = null
         var poster_path: String? = null
         var season_number: Int = 0
+    }
+
+    class ImagensBean {
+        /**
+         * backdrops : [ImagePathBean]
+         * posters: [ImagePathBean]
+         */
+
+        var backdrops: List<ImagePathBean>? = null
+        var posters: List<ImagePathBean>? = null
+
+    }
+
+    class ImagePathBean {
+        /**
+         * file_path : /ge9hzeaU7nMtQ4PjkFlc68dGAJ9.png
+         */
+        var file_path: String? = null
     }
 }

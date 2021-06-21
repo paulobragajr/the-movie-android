@@ -5,6 +5,6 @@
     <string name="base_url_img_movie">http://image.tmdb.org/t/p</string>
     <string name="size_imagem_185">/w185/</string>
     <string name="size_imagem_780">/w780/</string>
-    <string name="size_imagem_origianl">/original/</string>
+    <string name="size_imagem_origianl">/original</string>
 
 </resources>

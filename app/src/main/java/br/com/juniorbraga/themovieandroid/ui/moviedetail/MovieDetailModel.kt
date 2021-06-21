@@ -12,7 +12,7 @@ class MovieDetailModel(private val service: EndPoint): MovieDetailContract.Model
 
     override fun getMovie(idMovie: Int): Observable<MovieSeriesDetail> {
 
-        return service.detailMovie(idMovie,API_KEY)
+        return service.detailMovie(idMovie,API_KEY,"videos,images")
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
     }

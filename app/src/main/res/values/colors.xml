@@ -14,10 +14,10 @@
     <color name="dark_blue">#FF11233E</color>
     <color name="dark_card">#1C2A40</color>
 
-    <color name="colorPrimary">#FF11233E</color>
-    <color name="colorPrimaryDark">#11233E</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">@color/background_color</color>
+    <color name="colorPrimaryDark">@color/background_color</color>
     <color name="background_color">#081C24</color>
+    <color name="colorAccent">#D81B60</color>
     <color name="green_color">#01d277</color>
     <color name="white_color">#FFFFFF</color>
     <color name="white_ice_color">#DBDBDB</color>

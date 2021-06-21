@@ -1,6 +1,5 @@
 package br.com.juniorbraga.themovieandroid.ui.moviedetail
 
-import br.com.juniorbraga.themovieandroid.model.MovieSeries
 import br.com.juniorbraga.themovieandroid.model.MovieSeriesDetail
 import io.reactivex.Observable
 

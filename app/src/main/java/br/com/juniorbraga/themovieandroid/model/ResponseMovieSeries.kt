@@ -5,7 +5,7 @@ import kotlinx.android.parcel.Parcelize
 import java.util.ArrayList
 
 @Parcelize
-data class ResponseMovieSeries (val page: Int,
-                                val total_results: Int,
-                                val total_pages: Int,
-                                val results: List<MovieSeries>) : Parcelable
+data class ResponseMovieSeries (var page: Int,
+                                var total_results: Int,
+                                var total_pages: Int,
+                                var results: List<MovieSeries>) : Parcelable

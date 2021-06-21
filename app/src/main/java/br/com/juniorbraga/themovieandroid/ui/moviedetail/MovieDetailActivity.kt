@@ -34,7 +34,8 @@ class MovieDetailActivity : AppCompatActivity(), MovieDetailContract.View {
         (this.application as App).getComponent()?.inject(this)
 
         val display = windowManager.defaultDisplay
-        val rlParms: LinearLayout.LayoutParams = LinearLayout.LayoutParams(display.width, percentView(display.height,70))
+        val rlParms: LinearLayout.LayoutParams =
+            LinearLayout.LayoutParams(display.width, percentView(display.height, 70))
         rl_view.layoutParams = rlParms
 
         this.presenter.setView(this)
@@ -45,7 +46,7 @@ class MovieDetailActivity : AppCompatActivity(), MovieDetailContract.View {
     override fun updateMovies(movie: MovieSeriesDetail) {
         this.movieSeries = movie
 
-        if(this.movieSeries.tagline.toString().isEmpty())
+        if (this.movieSeries.tagline.toString().isEmpty())
             txt_tagline.isVisible = false
 
         txt_title_movie.text = this.movieSeries.title
@@ -64,6 +65,22 @@ class MovieDetailActivity : AppCompatActivity(), MovieDetailContract.View {
         val urlMovie: String = this.getString(R.string.base_url_img_movie) +
                 this.getString(R.string.size_imagem_origianl) + this.movieSeries.backdrop_path
 
+        val urlMovieProduct: String = this.getString(R.string.base_url_img_movie) +
+                this.getString(R.string.size_imagem_origianl) + (this.movieSeries.production_companies?.get(
+            0
+        )?.logo_path)
+
+        Glide.with(this).load(urlMovieProduct)
+            .into(object : SimpleTarget<Drawable?>() {
+                override fun onResourceReady(
+                    resource: Drawable,
+                    transition: com.bumptech.glide.request.transition.Transition<in Drawable?>?
+                ) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                        img_product.setImageDrawable(resource)
+                    }
+                }
+            })
         Glide.with(this).load(urlMovie)
             .into(object : SimpleTarget<Drawable?>() {
                 override fun onResourceReady(
