@@ -2,6 +2,9 @@ package br.com.juniorbraga.themovieandroid.ui.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.Switch
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,7 +21,7 @@ import br.com.juniorbraga.themovieandroid.ui.moviedetail.MovieDetailActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() , MainContract.View {
+class MainActivity : AppCompatActivity() , MainContract.View ,View.OnClickListener{
 
     @Inject
     lateinit var presenter: MainContract.Presenter
@@ -37,6 +40,7 @@ class MainActivity : AppCompatActivity() , MainContract.View {
         this.presenter.setView(this)
         this.presenter.getListMovies()
 
+        iv_settings.setOnClickListener(this)
         this.initRecyclerView()
     }
 
@@ -77,6 +81,15 @@ class MainActivity : AppCompatActivity() , MainContract.View {
     override fun showError(error: String) {
         showSimpleDialog(this,error) { _, _ ->
             this.presenter.getListMovies()
+        }
+    }
+
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.iv_settings -> Toast.makeText(this,"Em Construção",Toast.LENGTH_LONG).show()
+            else -> { // Note the block
+                print("Algo Deu Errado")
+            }
         }
     }
 }
