@@ -12,11 +12,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TheMovieAndroid"
+        android:theme="@style/NoActionBar"
+        android:configChanges="uiMode"
         android:usesCleartextTraffic="true">
         <activity android:name=".ui.splash.SplashActivity"
-            android:label="Movie"
-            android:theme="@style/NoActionBar">
+            android:configChanges="uiMode">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,11 +25,10 @@
         </activity>
         <activity
             android:name=".ui.moviedetail.MovieDetailActivity"
-            android:theme="@style/NoActionBar" />
+            android:configChanges="uiMode"/>
         <activity
             android:name=".ui.main.MainActivity"
-            android:label="Movie"
-            android:theme="@style/NoActionBar"/>
+            android:configChanges="uiMode"/>
     </application>
 
 </manifest>

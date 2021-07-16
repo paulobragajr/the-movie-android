@@ -80,14 +80,6 @@
                     android:textColor="@color/grey"
                     android:textSize="18dp" />
             </LinearLayout>
-
-            <ImageView
-                android:background="@color/white"
-                android:id="@+id/img_product"
-                android:layout_width="match_parent"
-                android:layout_height="40sp" />
-
         </LinearLayout>
     </ScrollView>
-
 </RelativeLayout>

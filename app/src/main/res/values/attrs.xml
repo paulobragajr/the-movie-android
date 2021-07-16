@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="textPrimary" format="reference" />
+    <attr name="textSecond" format="reference" />
+    <attr name="textSubtitle" format="reference" />
+    <attr name="textTitle" format="reference" />
+    <attr name="containerBackground" format="reference" />
+    <attr name="cardBackground" format="reference" />
+    <attr name="ratingPrimary" format="reference"/>
+    <attr name="ratingSecond" format="reference"/>
+
+
+</resources>

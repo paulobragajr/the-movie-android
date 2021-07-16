@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorPrimaryDark"
+    android:background="?attr/containerBackground"
     tools:context=".ui.main.MainActivity">
 
     <TextView
@@ -14,7 +14,7 @@
         android:paddingTop="16sp"
         android:layout_marginTop="16sp"
         android:text="Bem Vindo"
-        android:textColor="@color/white"
+        android:textColor="?attr/textPrimary"
         android:textSize="32sp"/>
 
     <TextView
@@ -23,7 +23,7 @@
         android:paddingLeft="16sp"
         android:paddingBottom="16sp"
         android:text="Selecione o filme"
-        android:textColor="@color/light_blue" />
+        android:textColor="?attr/textSubtitle" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_movie"

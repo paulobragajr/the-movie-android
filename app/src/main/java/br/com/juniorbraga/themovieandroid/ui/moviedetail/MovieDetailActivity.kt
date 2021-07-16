@@ -65,22 +65,6 @@ class MovieDetailActivity : AppCompatActivity(), MovieDetailContract.View {
         val urlMovie: String = this.getString(R.string.base_url_img_movie) +
                 this.getString(R.string.size_imagem_origianl) + this.movieSeries.backdrop_path
 
-        val urlMovieProduct: String = this.getString(R.string.base_url_img_movie) +
-                this.getString(R.string.size_imagem_origianl) + (this.movieSeries.production_companies?.get(
-            0
-        )?.logo_path)
-
-        Glide.with(this).load(urlMovieProduct)
-            .into(object : SimpleTarget<Drawable?>() {
-                override fun onResourceReady(
-                    resource: Drawable,
-                    transition: com.bumptech.glide.request.transition.Transition<in Drawable?>?
-                ) {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                        img_product.setImageDrawable(resource)
-                    }
-                }
-            })
         Glide.with(this).load(urlMovie)
             .into(object : SimpleTarget<Drawable?>() {
                 override fun onResourceReady(
