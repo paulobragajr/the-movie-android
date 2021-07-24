@@ -56,28 +56,18 @@ dependencies {
 
     def dependencies = rootProject.ext.dependencies
     def testDependencies = rootProject.ext.testDependencies
-    def room_version = "2.3.0"
 
+    implementation(dependencies.room_runtime)
+    annotationProcessor dependencies.room_compiler
+    kapt(dependencies.room_compiler)
 
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation 'com.airbnb.android:lottie:3.4.0'
-
-    implementation("androidx.room:room-runtime:$room_version")
-    annotationProcessor "androidx.room:room-compiler:$room_version"
-
-    // To use Kotlin annotation processing tool (kapt)
-    kapt("androidx.room:room-compiler:$room_version")
-    // To use Kotlin Symbolic Processing (KSP)
-//    ksp("androidx.room:room-compiler:$room_version")
-
-
+    implementation dependencies.lottie
     // Kotlin
     implementation dependencies.kotlin
     implementation dependencies.supportAppCompat
     implementation dependencies.supportCore
     implementation dependencies.supportDesign
     implementation dependencies.constraintLayout
-
 
     implementation dependencies.supportRecyclerView
     implementation dependencies.constraintLayout
