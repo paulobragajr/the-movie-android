@@ -1,6 +1,7 @@
 package br.com.juniorbraga.themovieandroid.model
 
 import android.os.Parcelable
+import androidx.lifecycle.MutableLiveData
 import kotlinx.android.parcel.Parcelize
 import java.util.ArrayList
 
@@ -8,4 +9,6 @@ import java.util.ArrayList
 data class ResponseMovieSeries (var page: Int,
                                 var total_results: Int,
                                 var total_pages: Int,
-                                var results: List<MovieSeries>) : Parcelable
+                                var results: List<MovieSeries>) : Parcelable {
+
+}

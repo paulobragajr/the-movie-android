@@ -1,4 +1,4 @@
-package br.com.juniorbraga.themovieandroid.ui.main.adapter
+package br.com.juniorbraga.themovieandroid.ui.main.fragment.listmovie.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,13 +8,13 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.juniorbraga.themovieandroid.R
 import br.com.juniorbraga.themovieandroid.component.FadeInLinearLayoutManager
 import br.com.juniorbraga.themovieandroid.model.MovieSeries
-import br.com.juniorbraga.themovieandroid.ui.main.MainContract
+import br.com.juniorbraga.themovieandroid.ui.main.fragment.listmovie.ListMovieContract
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.movie_item.view.*
 
 class MovieAdapter(private var movieSeries: List<MovieSeries>,
                    private val context: Context,
-                   private val view : MainContract.View
+                   private val view: ListMovieContract.View
 ) : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

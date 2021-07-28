@@ -1,18 +1,22 @@
-package br.com.juniorbraga.themovieandroid.ui.main
+package br.com.juniorbraga.themovieandroid.ui.main.fragment.listmovie
 
 import br.com.juniorbraga.themovieandroid.component.merge
 import br.com.juniorbraga.themovieandroid.model.ResponseMovieSeries
 import io.reactivex.disposables.CompositeDisposable
 
-class MainPresenter(private var model: MainContract.Model) : MainContract.Presenter {
+class ListMoviePresenter (private var model: ListMovieContract.Model) : ListMovieContract.Presenter {
 
-    private lateinit var view: MainContract.View
+    private lateinit var viewModel: ListMovieContract.ViewModel
     private lateinit var responseMovieSeries: ResponseMovieSeries
     private val disposables = CompositeDisposable()
 
-    override fun setView(view: MainContract.View) {
-        this.view = view
+
+    override fun setView(view: ListMovieContract.ViewModel) {
+        if (view != null) {
+            this.viewModel = view
+        }
     }
+
 
     override fun getListMovies() {
         disposables.add(
@@ -20,9 +24,9 @@ class MainPresenter(private var model: MainContract.Model) : MainContract.Presen
                 .subscribe(
                     { it ->
                         responseMovieSeries = it
-                        view.initialMovie(responseMovieSeries)
+                        viewModel.initialMovie(responseMovieSeries)
                     },
-                    { it -> view.showError(it.message!!) }
+                    { it -> viewModel.showError(it.message!!) }
                 )
         )
     }
@@ -38,9 +42,9 @@ class MainPresenter(private var model: MainContract.Model) : MainContract.Presen
                     { it ->
                         responseMovieSeries.page = it.page
                         responseMovieSeries.results = merge(responseMovieSeries.results, it.results)
-                        view.updateMovies(responseMovieSeries)
+                        viewModel.updateMovies(responseMovieSeries)
                     },
-                    { it -> view.showError(it.message!!) }
+                    { it -> viewModel.showError(it.message!!) }
                 )
         )
     }
