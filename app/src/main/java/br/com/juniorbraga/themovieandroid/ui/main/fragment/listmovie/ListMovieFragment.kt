@@ -1,6 +1,7 @@
 package br.com.juniorbraga.themovieandroid.ui.main.fragment.listmovie
 
 import android.os.Bundle
+import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,7 @@ import br.com.juniorbraga.themovieandroid.model.ResponseMovieSeries
 import br.com.juniorbraga.themovieandroid.ui.main.fragment.listmovie.adapter.MovieAdapter
 import kotlinx.android.synthetic.main.list_movie_fragment.*
 import javax.inject.Inject
+import androidx.navigation.fragment.findNavController
 
 class ListMovieFragment : Fragment() , ListMovieContract.View{
 
@@ -46,7 +48,8 @@ class ListMovieFragment : Fragment() , ListMovieContract.View{
     }
 
     override fun selectedMovie(movie: MovieSeries) {
-        this.listMovieViewModel.selectedMovie(movie)
+        findNavController().navigate(ListMovieFragmentDirections.actionDetailMovieFragment(movie.id))
+//        this.listMovieViewModel.selectedMovie(movie)
     }
 
     override fun returnMovies(isUpdate: Boolean, moviesList: ResponseMovieSeries) {

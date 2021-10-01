@@ -12,13 +12,12 @@ import br.com.juniorbraga.themovieandroid.component.showSimpleDialog
 import br.com.juniorbraga.themovieandroid.model.MovieSeries
 import br.com.juniorbraga.themovieandroid.model.ResponseMovieSeries
 import br.com.juniorbraga.themovieandroid.service.ID_MOVIE
-import br.com.juniorbraga.themovieandroid.ui.moviedetail.MovieDetailActivity
 
 class ListMovieViewModel: ViewModel(), ListMovieContract.ViewModel{
 
     lateinit var presenter: ListMovieContract.Presenter
 
-    var responseMovieSeries = MutableLiveData<ResponseMovieSeries>()
+//    var responseMovieSeries = MutableLiveData<ResponseMovieSeries>()
     private lateinit var view: ListMovieContract.View
 
     lateinit var context: Context
@@ -51,9 +50,9 @@ class ListMovieViewModel: ViewModel(), ListMovieContract.ViewModel{
     fun setCurrentpage(){ this.currentPage = this.currentPage + INDEX_PAGE }
 
     override fun selectedMovie(movie: MovieSeries) {
-        val intent = Intent(this.context, MovieDetailActivity::class.java)
-        intent.putExtra(ID_MOVIE, movie.id)
-        this.context.startActivity(intent)
+//        val intent = Intent(this.context, MovieDetailActivity::class.java)
+//        intent.putExtra(ID_MOVIE, movie.id)
+//        this.context.startActivity(intent)
     }
 
     override fun updateMovies(moviesList: ResponseMovieSeries) {

@@ -1,49 +1,57 @@
-package br.com.juniorbraga.themovieandroid.ui.moviedetail
+package br.com.juniorbraga.themovieandroid.ui.main.fragment.detailmovie
 
 import android.graphics.drawable.Drawable
 import android.os.Build
+import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.LinearLayout
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.juniorbraga.themovieandroid.R
 import br.com.juniorbraga.themovieandroid.aplication.App
 import br.com.juniorbraga.themovieandroid.component.percentView
 import br.com.juniorbraga.themovieandroid.model.MovieSeriesDetail
-import br.com.juniorbraga.themovieandroid.service.ID_MOVIE
-import br.com.juniorbraga.themovieandroid.ui.moviedetail.adapter.GenereAdapter
+import br.com.juniorbraga.themovieandroid.ui.main.fragment.detailmovie.adapter.GenereAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.SimpleTarget
-import kotlinx.android.synthetic.main.activity_movie_detail.*
+import kotlinx.android.synthetic.main.detail_movie_fragment.*
 import javax.inject.Inject
 
-
-class MovieDetailActivity : AppCompatActivity(), MovieDetailContract.View {
+class MovieDetailFragment : Fragment(), MovieDetailContract.View {
 
     @Inject
     lateinit var presenter: MovieDetailContract.Presenter
     lateinit var movieSeries: MovieSeriesDetail
+    private lateinit var viewModel: MovieDetailViewModel
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_movie_detail)
+    val args by navArgs<MovieDetailFragmentArgs>()
 
-        val movieId = intent.getIntExtra(ID_MOVIE, 0)
-
-        (this.application as App).getComponent()?.inject(this)
-
-        val display = windowManager.defaultDisplay
-        val rlParms: LinearLayout.LayoutParams =
-            LinearLayout.LayoutParams(display.width, percentView(display.height, 70))
-        rl_view.layoutParams = rlParms
-
-        this.presenter.setView(this)
-        this.presenter.getMovie(movieId)
-
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.detail_movie_fragment, container, false)
     }
 
-    override fun updateMovies(movie: MovieSeriesDetail) {
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        this.viewModel = ViewModelProvider(this).get(MovieDetailViewModel::class.java)
+        (this.activity?.application as App).getComponent()?.inject(this)
+        val movieId = args.idMovie
+        context?.let { viewModel.setView(this@MovieDetailFragment, it, this.presenter,movieId) }
+
+        val display = activity?.windowManager?.defaultDisplay
+        val rlParms: LinearLayout.LayoutParams =
+            LinearLayout.LayoutParams(display!!.width, percentView(display.height, 70))
+        rl_view.layoutParams = rlParms
+    }
+
+        override fun updateMovies(movie: MovieSeriesDetail) {
         this.movieSeries = movie
 
         if (this.movieSeries.tagline.toString().isEmpty())
@@ -54,9 +62,9 @@ class MovieDetailActivity : AppCompatActivity(), MovieDetailContract.View {
         txt_tagline.text = this.movieSeries.tagline
         rating.setRating(this.movieSeries.vote_average)
 
-        val layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        val layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false);
         rv_genere.layoutManager = layoutManager
-        rv_genere.adapter = GenereAdapter(this.movieSeries.genres, this)
+        rv_genere.adapter = context?.let { GenereAdapter(this.movieSeries.genres, it) }
 
         this.initImage()
     }
@@ -76,9 +84,5 @@ class MovieDetailActivity : AppCompatActivity(), MovieDetailContract.View {
                     }
                 }
             })
-    }
-
-    override fun showError(error: String) {
-
     }
 }

@@ -16,10 +16,6 @@
         android:theme="@style/NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".ui.main.MainActivity2"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/NoActionBar.NoActionBar"></activity>
-        <activity
             android:name=".ui.splash.SplashActivity"
             android:configChanges="uiMode">
             <intent-filter>
@@ -28,9 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.moviedetail.MovieDetailActivity"
-            android:configChanges="uiMode" />
         <activity
             android:name=".ui.main.MainActivity"
             android:configChanges="uiMode" />

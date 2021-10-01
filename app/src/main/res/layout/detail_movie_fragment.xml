@@ -47,10 +47,10 @@
                     android:textColor="@color/white"
                     android:textSize="35dp" />
 
-               <br.com.juniorbraga.themovieandroid.component.TheMovieRating
-                   android:id="@+id/rating"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"/>
+                <br.com.juniorbraga.themovieandroid.component.TheMovieRating
+                    android:id="@+id/rating"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_genere"

@@ -1,6 +1,5 @@
-package br.com.juniorbraga.themovieandroid.ui.moviedetail
+package br.com.juniorbraga.themovieandroid.ui.main.fragment.detailmovie
 
-import br.com.juniorbraga.themovieandroid.model.MovieSeries
 import br.com.juniorbraga.themovieandroid.model.MovieSeriesDetail
 import br.com.juniorbraga.themovieandroid.service.API_KEY
 import br.com.juniorbraga.themovieandroid.service.EndPoint

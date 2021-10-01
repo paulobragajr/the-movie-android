@@ -10,6 +10,7 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'org.sonarqube'
+apply plugin: "androidx.navigation.safeargs"
 
 android {
     compileSdkVersion 30
@@ -64,6 +65,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.navigation:navigation-fragment:2.3.5'
     def dependencies = rootProject.ext.dependencies
     def testDependencies = rootProject.ext.testDependencies
 
@@ -81,6 +83,13 @@ dependencies {
 
     implementation dependencies.supportRecyclerView
     implementation dependencies.constraintLayout
+
+    implementation dependencies.alpha04
+    implementation dependencies.legacySupport
+    implementation dependencies.materialAlpha05
+    implementation dependencies.navigationRuntimeKtx
+    implementation dependencies.navigationFragmentKtx
+    implementation dependencies.navigationUiKtx
 
     // Glide
     implementation dependencies.glide
@@ -106,4 +115,5 @@ dependencies {
     testImplementation testDependencies.jUnit
     androidTestImplementation testDependencies.androidJunit
     androidTestImplementation testDependencies.espresso
+
 }

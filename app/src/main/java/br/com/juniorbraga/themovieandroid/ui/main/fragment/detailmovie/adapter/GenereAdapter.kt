@@ -1,4 +1,4 @@
-package br.com.juniorbraga.themovieandroid.ui.moviedetail.adapter
+package br.com.juniorbraga.themovieandroid.ui.main.fragment.detailmovie.adapter
 
 import android.content.Context
 import android.view.LayoutInflater

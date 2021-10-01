@@ -24,6 +24,14 @@ ext {
             supportDesign         : "com.google.android.material:material:$supportAppCompat", //1.2.1
             constraintLayout      : "androidx.constraintlayout:constraintlayout:$supportConstraint",
 
+            alpha04 :  'androidx.appcompat:appcompat:1.1.0-alpha04',
+            legacySupport :'androidx.legacy:legacy-support-v4:1.0.0',
+            materialAlpha05 :'com.google.android.material:material:1.1.0-alpha05',
+            navigationRuntimeKtx: 'androidx.navigation:navigation-runtime-ktx:2.1.0-alpha02',
+            navigationFragmentKtx: 'androidx.navigation:navigation-fragment-ktx:2.1.0-alpha02',
+            navigationUiKtx : 'androidx.navigation:navigation-ui-ktx:2.1.0-alpha02',
+
+
             supportRecyclerView   : "com.android.support:recyclerview-v7:$supportVersion",
 
             glide                 : "com.github.bumptech.glide:glide:$glideVersion",

@@ -1,11 +1,8 @@
 package br.com.juniorbraga.themovieandroid.aplication
 
 import android.app.Application
-import android.content.Context
 import br.com.juniorbraga.themovieandroid.module.ApplicationModule
-import br.com.juniorbraga.themovieandroid.module.MainModule
 import br.com.juniorbraga.themovieandroid.service.APIModuleService
-import br.com.juniorbraga.themovieandroid.aplication.ApplicationComponent
 import br.com.juniorbraga.themovieandroid.module.ListMovieModule
 import br.com.juniorbraga.themovieandroid.module.MovieDetailModule
 
@@ -23,7 +20,6 @@ class App: Application() {
             .movieDetailModule(MovieDetailModule())
             .listMovieModule(ListMovieModule())
             .build()
-
     }
 
     fun getComponent(): ApplicationComponent {
