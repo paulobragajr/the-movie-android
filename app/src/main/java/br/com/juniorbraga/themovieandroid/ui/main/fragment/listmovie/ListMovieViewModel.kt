@@ -1,23 +1,17 @@
 package br.com.juniorbraga.themovieandroid.ui.main.fragment.listmovie
 
 import android.content.Context
-import android.content.Intent
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.juniorbraga.themovieandroid.component.OnLoadMoreListener
 import br.com.juniorbraga.themovieandroid.component.RecyclerViewLoadMoreScroll
 import br.com.juniorbraga.themovieandroid.component.showSimpleDialog
-import br.com.juniorbraga.themovieandroid.model.MovieSeries
 import br.com.juniorbraga.themovieandroid.model.ResponseMovieSeries
-import br.com.juniorbraga.themovieandroid.service.ID_MOVIE
 
 class ListMovieViewModel: ViewModel(), ListMovieContract.ViewModel{
 
     lateinit var presenter: ListMovieContract.Presenter
-
-//    var responseMovieSeries = MutableLiveData<ResponseMovieSeries>()
     private lateinit var view: ListMovieContract.View
 
     lateinit var context: Context
@@ -48,12 +42,6 @@ class ListMovieViewModel: ViewModel(), ListMovieContract.ViewModel{
         return scrollListener
     }
     fun setCurrentpage(){ this.currentPage = this.currentPage + INDEX_PAGE }
-
-    override fun selectedMovie(movie: MovieSeries) {
-//        val intent = Intent(this.context, MovieDetailActivity::class.java)
-//        intent.putExtra(ID_MOVIE, movie.id)
-//        this.context.startActivity(intent)
-    }
 
     override fun updateMovies(moviesList: ResponseMovieSeries) {
         this.setCurrentpage();

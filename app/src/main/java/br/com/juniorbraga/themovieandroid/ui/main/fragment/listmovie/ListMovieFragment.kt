@@ -49,7 +49,6 @@ class ListMovieFragment : Fragment() , ListMovieContract.View{
 
     override fun selectedMovie(movie: MovieSeries) {
         findNavController().navigate(ListMovieFragmentDirections.actionDetailMovieFragment(movie.id))
-//        this.listMovieViewModel.selectedMovie(movie)
     }
 
     override fun returnMovies(isUpdate: Boolean, moviesList: ResponseMovieSeries) {

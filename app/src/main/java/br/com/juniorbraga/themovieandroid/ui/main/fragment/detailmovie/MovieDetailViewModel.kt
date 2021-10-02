@@ -1,46 +1,79 @@
 package br.com.juniorbraga.themovieandroid.ui.main.fragment.detailmovie
 
 import android.content.Context
+import android.graphics.drawable.Drawable
+import android.os.Build
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import br.com.juniorbraga.themovieandroid.component.RecyclerViewLoadMoreScroll
-import br.com.juniorbraga.themovieandroid.component.showSimpleDialog
+import br.com.juniorbraga.themovieandroid.R
 import br.com.juniorbraga.themovieandroid.model.MovieSeriesDetail
-import br.com.juniorbraga.themovieandroid.model.ResponseMovieSeries
-import br.com.juniorbraga.themovieandroid.ui.main.fragment.listmovie.ListMovieContract
+import br.com.juniorbraga.themovieandroid.ui.main.fragment.detailmovie.adapter.GenereAdapter
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.SimpleTarget
 
-class MovieDetailViewModel : ViewModel(), MovieDetailContract.ViewModel {
 
-    lateinit var presenter: MovieDetailContract.Presenter
+class MovieDetailViewModel() : ViewModel(), MovieDetailContract.ViewModel {
 
-    //    var responseMovieSeries = MutableLiveData<ResponseMovieSeries>()
-    private lateinit var view: MovieDetailContract.View
+    private val _imageDrawable = MutableLiveData<Drawable>()
+    val imageDrawable: LiveData<Drawable> = _imageDrawable
+
+    private val _title = MutableLiveData<String>()
+    val title: LiveData<String> = _title
+
+    private val _overview = MutableLiveData<String>()
+    val overview: LiveData<String> = _overview
+
+    private val _tagline = MutableLiveData<String>()
+    val tagline: LiveData<String> = _tagline
+
+    private val _genereAdapter = MutableLiveData<GenereAdapter>()
+    val genereAdapter: LiveData<GenereAdapter> = _genereAdapter
+
+    private val _rating = MutableLiveData<Double>()
+    val rating: LiveData<Double> = _rating
+
     lateinit var context: Context
 
-
     override fun updateMovies(movie: MovieSeriesDetail) {
-        view.updateMovies(movie)
+        _title.value = movie.title
+        _overview.value = movie.overview
+        _tagline.value = movie.tagline
+        _rating.value= movie.vote_average
+        _genereAdapter.value = GenereAdapter(movie.genres, context)
+        movie.backdrop_path?.let { imageDrawable(it) }
     }
-
 
     override fun showError(error: String) {
-        showSimpleDialog(this.context, error) { _, _ -> }
+
     }
 
+    fun imageDrawable(backdrop_path:String){
+        val urlMovie: String = context.getString(R.string.base_url_img_movie) +
+                context.getString(R.string.size_imagem_origianl) + backdrop_path
+
+        Glide.with(context).load(urlMovie)
+            .into(object : SimpleTarget<Drawable?>() {
+                override fun onResourceReady(
+                    resource: Drawable,
+                    transition: com.bumptech.glide.request.transition.Transition<in Drawable?>?
+                ) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                        _imageDrawable.value = resource
+                    }
+                }
+            })
+    }
+
+
     override fun setView(
-        view: MovieDetailContract.View?,
         context: Context,
         presenter: MovieDetailContract.Presenter,
         idMovie:Int
     ) {
         this.context = context
-        this.presenter = presenter
-        this.presenter.setView(this)
 
-        if (view != null) {
-            this.view = view
-        }
-
-        this.presenter.getMovie(idMovie)
+        presenter.setView(this)
+        presenter.getMovie(idMovie)
     }
 }

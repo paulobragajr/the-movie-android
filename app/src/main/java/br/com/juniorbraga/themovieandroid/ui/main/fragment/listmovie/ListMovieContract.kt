@@ -17,8 +17,7 @@ interface ListMovieContract {
     }
 
     interface ViewModel {
-        fun setView(view: View?,context: Context,presenter: ListMovieContract.Presenter)
-        fun selectedMovie(movie: MovieSeries)
+        fun setView(view: View?,context: Context,presenter: Presenter)
         fun updateMovies(moviesList: ResponseMovieSeries)
         fun initialMovie(moviesList: ResponseMovieSeries)
         fun showError(error: String)
