@@ -55,12 +55,20 @@ android {
     buildFeatures {
         viewBinding true
     }
+    dataBinding {
+        enabled true
+        android.buildFeatures.dataBinding = true
+
+    }
 }
 
 dependencies {
 
+    implementation 'androidx.annotation:annotation:1.2.0'
     def dependencies = rootProject.ext.dependencies
     def testDependencies = rootProject.ext.testDependencies
+
+    kapt 'com.android.databinding:compiler:3.1.3'
 
     implementation(dependencies.room_runtime)
     annotationProcessor dependencies.room_compiler
