@@ -33,6 +33,9 @@ class MovieDetailViewModel() : ViewModel(), MovieDetailContract.ViewModel {
     private val _rating = MutableLiveData<Double>()
     val rating: LiveData<Double> = _rating
 
+    private val _isTagline = MutableLiveData<Boolean>()
+    val isTagline: LiveData<Boolean> = _isTagline
+
     lateinit var context: Context
 
     override fun updateMovies(movie: MovieSeriesDetail) {
@@ -40,6 +43,7 @@ class MovieDetailViewModel() : ViewModel(), MovieDetailContract.ViewModel {
         _overview.value = movie.overview
         _tagline.value = movie.tagline
         _rating.value= movie.vote_average
+        _isTagline.value = movie.tagline.isNullOrEmpty()
         _genereAdapter.value = GenereAdapter(movie.genres, context)
         movie.backdrop_path?.let { imageDrawable(it) }
     }
